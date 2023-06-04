@@ -1,6 +1,6 @@
 import uuid
 
-from django.contrib.postgres.fields import ArrayField
+# from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
@@ -94,7 +94,8 @@ class ServiceArea(UUIDPrimaryKey, ObjectHistoryTracker):
 
 
 class User(AbstractUser):
-    is_service_provider = models.BooleanField(default=False)
+    is_service_provider = models.BooleanField(default=True)
+    is_home_owner = models.BooleanField(default=True)
 
 
 class TimeSlot(UUIDPrimaryKey, ObjectHistoryTracker):
@@ -123,9 +124,9 @@ class Review(UUIDPrimaryKey, ObjectHistoryTracker):
 
 class ProviderAvailability(UUIDPrimaryKey, ObjectHistoryTracker):
     service_provider = models.ForeignKey(ServiceProvider, on_delete=models.CASCADE)
-    days_of_the_week = ArrayField(
-        base_field=models.IntegerField(choices=DaysOfTheWeek.choices), size=7
-    )
+    # days_of_the_week = ArrayField(
+    #     base_field=models.IntegerField(choices=DaysOfTheWeek.choices), size=7
+    # )
 
     start_time = models.TimeField(
         auto_now=False,

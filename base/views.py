@@ -1,55 +1,36 @@
-from rest_framework import viewsets
+from django.views import View
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
-from .models import (
-    Homeowner,
-    ServiceProvider,
-    User,
-    TimeSlot,
-    Booking,
-    Review,
-    ProviderAvailability,
-)
-from .serializers import (
-    HomeownerSerializer,
-    ServiceProviderSerializer,
-    UserSerializer,
-    TimeSlotSerializer,
-    BookingSerializer,
-    ReviewSerializer,
-    ProviderAvailabilitySerializer,
-)
+from base.forms import UserRegistrationForm
 
 
-class HomeownerViewSet(viewsets.ModelViewSet):
-    queryset = Homeowner.objects.all()
-    serializer_class = HomeownerSerializer
+class RegistrationView(View):
+    def get(self, request):
+        form = UserRegistrationForm()
+        return render(request, "base/registration.html", {"form": form})
+
+    def post(self, request):
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")
+        return render(request, "base/registration.html", {"form": form})
 
 
-class ServiceProviderViewSet(viewsets.ModelViewSet):
-    queryset = ServiceProvider.objects.all()
-    serializer_class = ServiceProviderSerializer
+class LoginView(View):
+    def get(self, request):
+        form = AuthenticationForm()
+        return render(request, "login.html", {"form": form})
 
-
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class TimeSlotViewSet(viewsets.ModelViewSet):
-    queryset = TimeSlot.objects.all()
-    serializer_class = TimeSlotSerializer
-
-
-class BookingViewSet(viewsets.ModelViewSet):
-    queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
-
-
-class ReviewViewSet(viewsets.ModelViewSet):
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
-
-
-class ProviderAvailabilityViewSet(viewsets.ModelViewSet):
-    queryset = ProviderAvailability.objects.all()
-    serializer_class = ProviderAvailabilitySerializer
+    def post(self, request):
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect("home")
+        return render(request, "login.html", {"form": form})
