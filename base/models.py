@@ -1,9 +1,12 @@
 import uuid
 
+from django.contrib.auth.models import AbstractUser
+
 # from django.contrib.postgres.fields import ArrayField
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
+
+from base.managers import UserManager
 
 
 class DaysOfTheWeek(models.IntegerChoices):
@@ -93,9 +96,23 @@ class ServiceArea(UUIDPrimaryKey, ObjectHistoryTracker):
     description = models.TextField()
 
 
-class User(AbstractUser):
-    is_service_provider = models.BooleanField(default=True)
-    is_home_owner = models.BooleanField(default=True)
+class User(UUIDPrimaryKey, AbstractUser):
+    username = None
+    email = models.EmailField(
+        verbose_name=_("email address"), blank=False, null=False, unique=True
+    )
+    is_service_provider = models.BooleanField(
+        verbose_name=_("is service provider"), default=True
+    )
+    is_home_owner = models.BooleanField(verbose_name=_("is home owner"), default=True)
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
+
+    objects = UserManager()
+
+    def __str__(self):
+        return self.email
 
 
 class TimeSlot(UUIDPrimaryKey, ObjectHistoryTracker):

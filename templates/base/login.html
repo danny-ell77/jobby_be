@@ -1,0 +1,39 @@
+{% extends "base/index.html" %}
+{% load static %}
+
+{% block content %}
+      <section class="account-section">
+    <div class="tf-container">
+      <div class="row">
+        <div class="wd-form-login">
+          <h4>Log In</h4>
+            {% if messages %}
+                {%  for message in messages %}
+                    <p style="color: red;">{{ message | capfirst }}</p>
+                {% endfor %}
+            {% endif %}
+          <form method="post" action="{% url 'login' %}">
+              {% csrf_token %}
+            <div class="ip">
+              <label for="{{ form.email.id_for_label }}">Email address<span>*</span></label>
+              {{ form.email }}
+            </div>
+            <div class="ip">
+              <label for="{{ form.password.id_for_label }}">Password<span>*</span></label>
+              <div class="inputs-group auth-pass-inputgroup">
+                {{ form.password }}
+                <a class="icon-eye-off password-addon" id="password-addon"></a>
+              </div>
+            </div>
+            <div class="group-ant-choice">
+              <div class="sub-ip"><input type="checkbox">Remember me</div>
+              <a href="#" class="forgot">Forgot password?</a>
+            </div>
+            <button type="submit">Login</button>
+            <div class="sign-up">Not registered yet? <a href="{% url 'register' %}">Sign Up</a></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
