@@ -19,39 +19,39 @@ window.console =
   })();
 
 $(document).ready(function () {
-  var e =
-    '<div class="switcher-container">' +
-    '<h2>Style Selector<a href="#" class="sw-click"><img src="images/settings1.png" class="setting"></img></a></h2>' +
-    '<div class="selector-box">' +
-    '<div class="clearfix"></div>' +
-    '<div class="sw-odd"><h3>Color:</h3>' +
-    '<div class="ws-colors">' +
-    '<a href="#" class="styleswitch" id="color1">' +
-    "Color1" +
-    "</a>" +
-    '<a href="#" class="styleswitch" id="color2">' +
-    "Color2" +
-    "</a>" +
-    '<a href="#" class="styleswitch" id="color3">' +
-    "Color3" +
-    "</a>" +
-    '<a href="#" class="styleswitch" id="color4">' +
-    "Color4" +
-    "</a>" +
-    '<a href="#" class="styleswitch" id="color5">' +
-    "Color5" +
-    "</a>" +
-    '<a href="#" class="styleswitch" id="color6">' +
-    "Color6" +
-    "</a>" +
-    "</div></div>" +
-    '<div class="sw-even"><h3>Layout:</h3>' +
-    '<a href="#" class="sw-light">BOX</a>' +
-    '<a href="#" class="sw-dark">WIDE</a>' +
-    "</div>" +
-    '<div class="clearfix"></div>' +
-    "</div>" +
-    "</div>";
+  var e =""
+    // '<div class="switcher-container">' +
+    // '<h2>Style Selector<a href="#" class="sw-click"><img src="images/settings1.png" class="setting"></img></a></h2>' +
+    // '<div class="selector-box">' +
+    // '<div class="clearfix"></div>' +
+    // '<div class="sw-odd"><h3>Color:</h3>' +
+    // '<div class="ws-colors">' +
+    // '<a href="#" class="styleswitch" id="color1">' +
+    // "Color1" +
+    // "</a>" +
+    // '<a href="#" class="styleswitch" id="color2">' +
+    // "Color2" +
+    // "</a>" +
+    // '<a href="#" class="styleswitch" id="color3">' +
+    // "Color3" +
+    // "</a>" +
+    // '<a href="#" class="styleswitch" id="color4">' +
+    // "Color4" +
+    // "</a>" +
+    // '<a href="#" class="styleswitch" id="color5">' +
+    // "Color5" +
+    // "</a>" +
+    // '<a href="#" class="styleswitch" id="color6">' +
+    // "Color6" +
+    // "</a>" +
+    // "</div></div>" +
+    // '<div class="sw-even"><h3>Layout:</h3>' +
+    // '<a href="#" class="sw-light">BOX</a>' +
+    // '<a href="#" class="sw-dark">WIDE</a>' +
+    // "</div>" +
+    // '<div class="clearfix"></div>' +
+    // "</div>" +
+    // "</div>";
   $("body").append(e);
   switchAnimate.loadEvent();
   switchColor.loadEvent();

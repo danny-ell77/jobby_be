@@ -78,10 +78,18 @@ class Homeowner(UUIDPrimaryKey, ObjectHistoryTracker):
 
 class ServiceProvider(UUIDPrimaryKey, ObjectHistoryTracker):
     user = models.OneToOneField("User", on_delete=models.CASCADE)
+    provider_name = models.CharField(max_length=255, blank=True, null=True)
     bio = models.TextField()
     rating = models.PositiveSmallIntegerField(null=True)
     hourly_rate = models.DecimalField(
         verbose_name="hourly rate", max_digits=8, decimal_places=2
+    )
+    availability = models.ForeignKey(
+        "ProviderAvailability",
+        on_delete=models.CASCADE,
+        related_name="service_providers",
+        blank=True,
+        null=True,
     )
     location = models.CharField(max_length=255)
 
@@ -140,10 +148,7 @@ class Review(UUIDPrimaryKey, ObjectHistoryTracker):
 
 
 class ProviderAvailability(UUIDPrimaryKey, ObjectHistoryTracker):
-    service_provider = models.ForeignKey(ServiceProvider, on_delete=models.CASCADE)
-    # days_of_the_week = ArrayField(
-    #     base_field=models.IntegerField(choices=DaysOfTheWeek.choices), size=7
-    # )
+    days_of_the_week = models.CharField(max_length=500, blank=True, null=True)
 
     start_time = models.TimeField(
         auto_now=False,
@@ -167,3 +172,4 @@ class ProviderAvailability(UUIDPrimaryKey, ObjectHistoryTracker):
                 violation_error_message="Start time must be before end time.",
             ),
         ]
+        verbose_name_plural = "Provider availabilities"

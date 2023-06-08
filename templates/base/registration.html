@@ -1,7 +1,31 @@
 {% extends "base/index.html" %}
 
 {% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}" />
 
+<!-- Bootstrap -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+<!-- swiper slider -->
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Theme Style -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/shortcodes.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/jobs.html' %}" />
+
+<!-- Favicon and Touch Icons  -->
+<link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'img/favicon.png' %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+
+{% endblock %}
 {% block content %}
   <section class="account-section">
         <div class="tf-container">
@@ -146,3 +170,15 @@
   </section>
 
  {% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/plugin.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/password-addon.js' %}"></script>
+<script src="{% static 'js/swiper.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

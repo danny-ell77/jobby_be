@@ -1,0 +1,173 @@
+{% extends "base/index.html" %}
+{% load static %}
+{% block css %}
+    <!-- Font -->
+<link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+<!-- swiper slider -->
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="{% static 'css/unicons.iconscout.com/release/v4.0.0/css/thinline.css' %}">
+
+<!-- Theme Style -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/shortcodes.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+
+<!-- Favicon and Touch Icons -->
+<link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'img/favicon.png' %}">
+
+{% endblock %}
+{% block dashboard_class %} class="dashboard show "{% endblock %}
+
+{% block content %}
+
+  <div class="dashboard__content">
+    <section class="page-title-dashboard">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <div class="title-dashboard">
+              <div class="title-dash flex2">Profile Setting</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="flat-dashboard-setting">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <div class="profile-setting bg-white">
+              <div class="author-profile flex2 border-bt">
+
+                <div class="wrap-img flex2">
+                  <div class="img-box relative">
+                    <img class="avatar " id="profileimg" src="{% static "img/dashboard/image-up.jpg" %}" alt="">
+                  </div>
+                  <div id="upload-profile">
+                    <h5 class="fw-6">Upload a Logo:</h5>
+                    <h6>JPG 80x80px</h6>
+                    <input class="up-file" id="tf-upload-img" type="file" name="profile" required="">
+                  </div>
+                </div>
+                <div class="wrap-img flex2">
+                  <div class="img-box relative">
+                    <img class="avatar " id="profileimg2" src="{% static "/img/dashboard/image-up.jpg" %}" alt="">
+                  </div>
+                  <div id="upload-profile2">
+                    <h5 class="fw-6">Upload a new cover:</h5>
+                    <h6>JPG 1920x460px</h6>
+                    <input class="up-file" id="tf-upload-img2" type="file" name="profile" required="">
+
+                  </div>
+                </div>
+                <div class="tt-button button-style">
+                  <a href="#" id="submitFormLink" class="btn-3">Save Profile</a>
+                </div>
+              </div>
+                <form id="myForm" method="post" action="{% url 'service_provider_profile' %}">
+                  {% csrf_token %}
+
+                  <div class="form-infor-profile">
+                    <h3 class="title-info">Information</h3>
+                    <div class="form-infor flex flat-form">
+                      <div class="info-box info-wd">
+                        <fieldset>
+                          <label class="title-user fw-7" for="{{ form.provider_name.id_for_label }}">Provider Name</label>
+                          {{ form.provider_name }}
+                        </fieldset>
+                        <fieldset>
+                          <label class="title-user fw-7" for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+                          {{ form.phone_number }}
+                        </fieldset>
+                      </div>
+                      <div class="info-box info-wd">
+                        <fieldset>
+                          <label class="title-user fw-7" for="{{ form.email.id_for_label }}">Email</label>
+                          {{ form.email }}
+                        </fieldset>
+                          <div id="item_size" class="dropdown titles-dropdown" style="margin-bottom: 20px">
+                            <label class="title-user fw-7" for="{{ form.state.id_for_label }}">Your State</label>
+                            <select id="{{ form.state.id_for_label }}" name="{{ form.state.name }}" class="btn-selector nolink input-form provider-state">
+                                {% for value, label in form.state.field.choices %}
+                                    <option value="{{ value }}">{{ label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                          <fieldset>
+
+                          <label class="title-user fw-7" for="{{ form.hourly_rate.id_for_label }}">Hourly Rate(&#8358;)</label>
+
+                          {{ form.hourly_rate }}
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="text-editor-wrap border-bt">
+                      <h3>Bio</h3>
+{#                        <div class="contentOutput" contenteditable="true">#}
+                          {{ form.bio }}
+{#                        </div>#}
+                    </div>
+                    <div class="contact-wrap info-wd border-bt">
+                  <h3>Availability</h3>
+
+                 <div id="item_size" style="margin-bottom: 20px">
+                     <label for="{{ form.days_of_week.id_for_label }}">Days of the Week:</label>
+                     <p>Please enter the days of the week you'll be available seperated by a comma</p>
+                        {{ form.days_of_week }}
+                 </div>
+                  <label for="{{ form.start_time.id_for_label }}">Start Time:</label>
+                    {{ form.start_time }}
+                    <br>
+                    <label for="{{ form.end_time.id_for_label }}">End Time:</label>
+                    {{ form.end_time }}
+                    <br>
+                </div>
+
+                  </div>
+
+                </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flat-dashboard-bottom">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <h5 class="center">©2023 Jobby. All Rights Reserved.</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/tag-input.js' %}"></script>
+<script src={% static  "js/kit.fontawesome.com/275e820b94.js" %}></script>
+<script src="{% static 'js/text-editor.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.cookie.js' %}"></script>
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/countto.js' %}"></script>
+<script src="{% static 'js/dropdown.js' %}"></script>
+<script src="{% static 'js/dashboard-menu.min.js' %}"></script>
+<script src="{% static 'js/dashboard-menu.js' %}"></script>
+
+{% endblock %}

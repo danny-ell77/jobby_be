@@ -306,7 +306,7 @@
         spaceBetween: 17,
         loop: true,
         slideToClickedSlide: true,
-        slidesPerView: 3,
+        xslidesPerView: 3,
         breakpoints: {
           200: {
             slidesPerView: 2,

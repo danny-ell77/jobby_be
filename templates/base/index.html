@@ -16,45 +16,19 @@
 
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <!-- Font -->
-  <link rel="stylesheet" href={% static "fonts/fonts.css" %}/>
-  <link rel="stylesheet" href={% static "fonts/icon-font.css" %}/>
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href={% static "css/bootstrap.min.css" %}/>
-
-  <!-- swiper slider -->
-  <link rel="stylesheet" href={%   static "css/swiper-bundle.min.css" %}/>
-
-  <!-- Mobile Specific Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-  <!-- Theme Style -->
-  <link rel="stylesheet" type="text/css" href={%   static "css/shortcodes.css" %}/>
-  <link rel="stylesheet" type="text/css" href={%   static "css/style.css" %}/>
-  <link rel="stylesheet" type="text/css" href={%   static "css/jobs.html" %}>
-
-  <!-- Favicon and Touch Icons  -->
-  <link rel="shortcut icon" href={% static "img/favicon.png" %}>
-  <link rel="apple-touch-icon-precomposed" href={% static "img/favicon.png" %} >
-
-  <!-- Responsive -->
-  <link rel="stylesheet" type="text/css" href={%   static "css/responsive.css" %}/>
-
-
+ {% block css %}{% endblock %}
 
 </head>
 
-<body>
-  <a id="scroll-top" ></a>
+<body {% block dashboard_class %}{% endblock %}>
+  <a id="scroll-top"></a>
 
    <!-- preloade -->
-  <div class="preload preload-container">
-    <div class="preload-logo">
-      <div class="spinner"></div>
-    </div>
-  </div>
+{#  <div class="preload preload-container">#}
+{#    <div class="preload-logo">#}
+{#      <div class="spinner"></div>#}
+{#    </div>#}
+{#  </div>#}
   <!-- /preload -->
   <div class="menu-mobile-popup">
     <div class="modal-menu__backdrop"></div>
@@ -707,7 +681,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="bt-left">
-                        <div class="copyright">©2023 Themesflat. All Rights Reserved.</div>
+                        <div class="copyright">©2023 Jobby. All Rights Reserved.</div>
                         <div class="select-language">
                             <div class="dropdown" id="language">
                                 <a class="btn-selector nolink input-form"><span><img src={%  static "img/review/flag.png" %}, alt=""></span> English</a>
@@ -727,17 +701,34 @@
     </div>
   </footer>
 
+{% block scripts %}{% endblock %}
 
-<script src={% static  "js/jquery.min.js" %}></script>
-<script src={% static  "js/swiper-bundle.min.js" %}></script>
-<script src={% static  "js/bootstrap.min.js" %}></script>
-<script src={% static  "js/jquery.fancybox.js" %}></script>
-<script src={% static  "js/plugin.min.js" %}></script>
-<script src={% static 'js/wow.min.js' %}></script>
-<script src={% static  "js/password-addon.js" %}></script>
-<script src={% static 'js/swiper.js' %}></script>
-<script src={% static 'js/jquery.nice-select.min.js' %}></script>
-<script src={% static  "js/main.js" %}></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let submitFormLink = document.getElementById('submitFormLink');
+    submitFormLink.addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent the default behavior of the anchor tag
+
+        let form = document.getElementById('myForm');
+        let fields = form.querySelectorAll('input, textarea');
+        let isValid = true;
+
+        fields.forEach(function(field) {
+            if (field.value.trim() === '') {
+                isValid = false;
+            }
+        });
+
+        if (isValid) {
+            form.submit();
+        } else {
+            alert("Please fill all form fields")
+        }
+    });
+});
+</script>
+
+
 </body>
 
 </html>

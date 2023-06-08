@@ -1,0 +1,1193 @@
+{% extends "base/index.html" %}
+{% load static %}
+{% block css %}
+    <!-- Font -->
+<link rel="stylesheet" href="{% static 'fonts/fonts.css' %}" />
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+<!-- swiper slider -->
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Theme Style -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/shortcodes.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/jobs.html' %}" />
+
+<!-- Favicon and Touch Icons -->
+<link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'img/favicon.png' %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
+
+{% endblock %}
+{% block content %}
+  <a id="scroll-top" ></a>
+      <!-- popup apply job -->
+      <div class="wd-popup-job-apply">
+        <div class="modal-menu__backdrop"></div>
+        <div class="content">
+          <h6>Apply For This Service</h6>
+          <form action="https://themesflat.co/html/jobtex/get">
+            <label class="label-text">Email<span>*</span></label>
+            <input type="text" placeholder="Email" required>
+            <div class="group-radio">
+              <input type="radio"><label>You accept our <a href="#">Terms</a> and <a href="#">Conditions</a> and <a
+                  href="#">Privacy Policy</a> </label>
+            </div>
+            <button>Login</button>
+          </form>
+        </div>
+      </div>
+      <!-- end -->
+
+        <!-- popup apply job -->
+        <div class="wd-popup-job-apply fohr-tuhn01">
+          <div class="modal-menu__backdrop"></div>
+          <div class="content">
+            <h6>Apply For This Job</h6>
+            <form action="https://themesflat.co/html/jobtex/get">
+              <label class="label-text">Email<span>*</span></label>
+              <input type="text" placeholder="Email" required>
+              <div class="group-radio">
+                <input type="radio"><label>You accept our <a href="#">Terms</a> and <a href="#">Conditions</a> and <a
+                    href="#">Privacy Policy</a> </label>
+              </div>
+              <button>Login</button>
+            </form>
+          </div>
+        </div>
+        <!-- end -->
+
+   <!-- preloade -->
+  <div class="preload preload-container">
+    <div class="preload-logo">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  <!-- /preload -->
+  <div class="menu-mobile-popup">
+    <div class="modal-menu__backdrop"></div>
+    <div class="widget-filter">
+
+
+
+
+
+
+      <div class="mobile-footer">
+        <div class="icon-infor d-flex aln-center">
+          <div class="icon">
+              <span class="icon-call-calling"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+          </div>
+          <div class="content">
+              <p>Need help? 24/7</p>
+              <h6><a href="tel:08012345678">+2349012348888</a></h6>
+          </div>
+      </div>
+        <div class="wd-social d-flex aln-center">
+          <ul class="list-social d-flex aln-center">
+              <li><a href="#"><i class="icon-facebook"></i></a></li>
+              <li><a href="#"><i class="icon-linkedin2"></i></a></li>
+              <li><a href="#"><i class="icon-twitter"></i></a></li>
+              <li><a href="#"><i class="icon-pinterest"></i></a></li>
+              <li><a href="#"><i class="icon-instagram1"></i></a></li>
+              <li><a href="#"><i class="icon-youtube"></i></a></li>
+          </ul>
+      </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HEADER -->
+
+{#<header id="header" class="header header-default header-style2">#}
+{#  <div class="tf-container">#}
+{#    <div class="row">#}
+{#      <div class="col-md-12">#}
+{#        <div class="sticky-area-wrap">#}
+{#          <div class="header-ct-left">#}
+{#            <ul class="usefull-link">#}
+{#              <li><a href="index.html">For Service Providers</a></li>#}
+{#              <li><a href="candidate.html">For Home Owners</a></li>#}
+{#            </ul>#}
+{#          </div>#}
+{#          <div class="header-ct-center">#}
+{#            <div id="logo" class="logo">#}
+{#              <a href="index.html">#}
+{#                <img class="site-logo" src="img/logo.png" alt="Image">#}
+{#              </a>#}
+{#            </div>#}
+{##}
+{#          </div>#}
+{#          <div class="header-ct-right">#}
+{#            <div class="header-customize-item help">#}
+{#              <a href="term-of-use.html"><span class="icon-help-circle"></span></a>#}
+{#            </div>#}
+{#            <div class="header-customize-item bell">#}
+{#              <span class="icon-bell"></span>#}
+{#              <div class="sub-notification">#}
+{#                <div class="sub-notification-heading">#}
+{#                  <div class="sub-notification-title">Notification</div>#}
+{#                  <span>5 New</span>#}
+{#                </div>#}
+{#                <div class="sub-notification-content">#}
+{#                  <div class="sub-notification-item icon-plus">#}
+{#                    <div class="time">Last day</div>#}
+{#                    <div class="content">#}
+{#                      Your submit job <span class="name">Graphic Design</span> is#}
+{#                      <span class="status">Success</span>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <div class="sub-notification-item icon-plus">#}
+{#                    <div class="time">5 Day ago</div>#}
+{#                    <div class="content">#}
+{#                      A new application is submitted on your job#}
+{#                      <span class="name">Graphic Design</span> by#}
+{#                      <span class="name">Maverick Nguyen</span>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <div class="sub-notification-item icon-plus">#}
+{#                    <div class="time">5 Day ago</div>#}
+{#                    <div class="content">#}
+{#                      A new application is submitted on your job#}
+{#                      <span class="name">Graphic Design</span> by#}
+{#                      <span class="name">Maverick Nguyen</span>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <div class="sub-notification-item icon-plus">#}
+{#                    <div class="time">Last day</div>#}
+{#                    <div class="content">#}
+{#                      Your submit job <span class="name">Graphic Design</span> is#}
+{#                      <span class="status">Success</span>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <div class="sub-notification-item icon-plus">#}
+{#                    <div class="time">5 Day ago</div>#}
+{#                    <div class="content">#}
+{#                      A new application is submitted on your job#}
+{#                      <span class="name">Graphic Design</span> by#}
+{#                      <span class="name">Maverick Nguyen</span>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{#                <div class="sub-notification-button">#}
+{#                  <a href="#">Read All</a>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="header-customize-item login">#}
+{#              <a href="login.html">#}
+{#                <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">#}
+{#                    <path#}
+{#                      d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"#}
+{#                      stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>#}
+{#                    <path#}
+{#                      d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"#}
+{#                      stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>#}
+{#                  </svg></span>#}
+{#              </a>#}
+{#              <ul class="item-login"><a href="login.html">#}
+{#                </a>#}
+{#                <li><a href="login.html"></a><a href="login.html">Login</a></li>#}
+{#                <li><a href="create-account.html">register</a></li>#}
+{#              </ul>#}
+{##}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</header>#}
+
+
+
+<!--header   -->
+<!--  -->
+<!--  -->
+
+
+
+
+  <!-- END HEADER -->
+
+  <section class="bg-f5 breadcrumb-section">
+    <div class="tf-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-title">
+                    <div class="widget-menu-link">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Find Home Owners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="form-sticky stc2">
+      <div class="tf-container">
+        <div class="job-search-form inner-form-map style2">
+          <form method="post">
+            <div class="row-group-search">
+              <div class="form-group">
+                <input type="text" class="input-filter-search" placeholder="Keywords">
+                <span class="icon-search search-job icon"></span>
+              </div>
+              <div class="form-group location">
+                <span class="icon-map-pin icon"></span>
+                <select  id="select-location" class="select-location">
+                  <option value="">Location</option>
+                  <option value="">Abuja</option>
+                  <option value="">Lagos</option>
+                  <option value="">Akwa Ibom</option>
+                  <option value="">Sokoto</option>
+                  <option value="">Kano</option>
+                </select>
+              </div>
+              <div class="form-group st">
+                <select >
+                  <option value="">Service Category</option>
+                  <option value="">Plumbing</option>
+                  <option value="">Electrical</option>
+                  <option value="">Landscaping</option>
+                  <option value="">Painting</option>
+                  <option value="">Cleaning</option>
+                  <option value="">Carpentry</option>
+                </select>
+              </div>
+              <div class="form-group st">
+                <select >
+                  <option value="">Age-range</option>
+                  <option value="">20-30</option>
+                  <option value="">30-40</option>
+                  <option value="">40 and above</option>
+                </select>
+              </div>
+              <div class="form-group st">
+                <select >
+                  <option value="">Price Range</option>
+                  <option value="">Budget-friendly</option>
+                  <option value="">Moderate</option>
+                  <option value="">Premium</option>
+                  <option value="">Custom range</option>
+                </select>
+              </div>
+              <div class="form-group st">
+                <select >
+                  <option value="">Language</option>
+                  <option value="">English</option>
+                  <option value="">Spanish</option>
+                  <option value="">French</option>
+                  <option value="">Other</option>
+                </select>
+              </div>
+              <div class="form-group-btn">
+                <button class="btn btn-find">Find Jobs</button>
+              </div>
+            </div>
+
+          </form>
+          <!-- End Job  Search Form-->
+        </div>
+      </div>
+  </section>
+
+  <section class="candidates-section">
+        <div class="tf-container">
+            <div class="row">
+                <div class="col-lg-12 tf-tab">
+                    <div class="wd-meta-select-job">
+
+                        <div class="wd-findjob-filer">
+                            <div class="group-select-display">
+                            </div>
+                            <div class="group-select">
+                              <select>
+                                <option>12 Per Page</option>
+                                <option>1 Per Page</option>
+                                <option>10 Per Page</option>
+                              </select>
+                              <select>
+                                <option>Sort by (Defaut)</option>
+                                <option>New</option>
+                                <option>Last</option>
+                              </select>
+                            </div>
+                          </div>
+                    </div>
+                        <div class="content-tab">
+                          <div class="inner">
+                            <div class="group-col-2">
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Plumbing repairs and installations</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Need assistance fixing a leaking pipe in the bathroom
+                                            and installing a new water heater in the kitchen. Also, please
+                                          check the water pressure throughout the house and provide recommendations
+                                          for improvement.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Lagos, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <!-- <div class="career-header-right">
+                                        <a class="tf-btn open-button">Apply</a>
+                                      </div> -->
+                                        <div class="button-readmore career-header-right">
+                                          <a class="tf-btn open-button btn-popup">
+                                            Apply
+                                          </a>
+                                        </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Fixing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Maintening</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;8000/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <div class="career-left-inner">
+                                          <h3>
+                                            <a href="#">Gardening and landscaping services</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Seeking help to maintain the garden,
+                                            including mowing the lawn, trimming hedges, removing weeds, and
+                                            planting seasonal flowers. Additionally, advice on optimizing irrigation
+                                          systems for better water efficiency would be appreciated.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Abuja, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply</a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Trimming</a></li>
+                                          <li><a href="#">Planting</a></li>
+                                          <li><a href="#">Mowing</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;4000/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <div class="career-left-inner">
+                                          <h3>
+                                            <a href="#">Electrical wiring and troubleshooting</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Require an electrician to inspect the electrical
+                                            wiring in the house, repair any faulty outlets, and install new ceiling
+                                          fans in the living room and bedrooms. Safety is a priority, so ensuring all
+                                           connections are secure is crucial.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Benin, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply </a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Wiring</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Repairing</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;300/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <div class="career-left-inner">
+                                          <h3>
+                                            <a href="#">Painting Services</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Looking for professional painters to repaint the
+                                            interior walls of the house, including the living room, kitchen, and
+                                            three bedrooms. Need advice on choosing the right colors that create a warm and inviting ambiance.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Calabar, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply</a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Living room</a></li>
+                                          <li><a href="#">Bedroom</a></li>
+                                          <li><a href="#">Kitchen</a></li>
+                                          <li><a href="#">Bathroom</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;500/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">House cleaning and organizing</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Need thorough cleaning of the entire house,
+                                            including vacuuming, dusting, mopping floors, cleaning windows, and
+                                            sanitizing bathrooms and kitchen surfaces. Attention to detail and
+                                            eco-friendly cleaning products are preferred.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Kano, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply</a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Cleaning</a></li>
+                                          <li><a href="#">Mopping</a></li>
+                                          <li><a href="#">Dusting</a></li>
+                                          <li><a href="#">Sanitizing</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                                        <p>&#x20a6;5000/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+                                          <h3>
+                                            <a href="#">Pest control and extermination</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Facing issues with ants and spiders
+                                            infestation in the house. Seeking pest control services to eliminate
+                                            these pests, provide preventive measures, and ensure a pest-free environment in the future.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Jos, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply </a></a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Fixing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Maintening</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+
+                                        <p>&#x20a6;15000/month</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">HVAC (Heating, Ventilation, and Air Conditioning) system repairs and maintenance</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Require HVAC technicians to service
+                                            the air conditioning system, check for any leaks, clean filters, and ensure optimal
+                                            cooling efficiency. Recommendations for improving overall energy efficiency would be
+                                            appreciated.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Sokoto, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply </a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Cleaning</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Maintening</a></li>
+                                          <li><a href="#">Fixing</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+
+                                        <p>&#x20a6;3000/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Carpentry Services</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Need assistance
+                                            with custom carpentry work, including building a bookshelf in the study, repairing
+                                            a broken cabinet door in the kitchen, and installing new shelves in the garage for better organization.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Benin, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply </a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Repairing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Building</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;4500/day</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Roofing repairs and installations</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Seeking roof repair services to
+                                            fix leaks, replace damaged shingles, and assess the overall condition of the roof.
+                                            Knowledge of local weather conditions and suitable roofing materials is important.</p>
+                                          <ul class="">
+
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Kaduna, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply</a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Fixing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Replacing</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+
+                                        <p>&#x20a6;4300/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+                                          <h3>
+                                            <a href="#">Flooring installation and repairs</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Want to replace the worn-out carpet in the living room with hardwood flooring. Need skilled professionals to handle the
+                                          installation, ensuring a seamless and durable finish.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Port Harcourt, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01"> Apply </a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Replacing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Maintening</a></li>
+                                          <li><a href="#">Cleaning</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+
+                                        <p>&#x20a6;5000/day</p>
+                                      </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <ul class="pagination-job p-top-st1">
+                                <li><a href="#"><i class="icon-keyboard_arrow_left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li class="current"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="icon-keyboard_arrow_right"></i></a></li>
+                              </ul>
+                        </div>
+                            <div class="inner">
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Interior painting and wall decor</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Looking for an interior designer to provide a fresh perspective and redesign the living room space. Need help with
+                                          furniture selection, color schemes, and creating a cohesive and stylish look.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Akwa Ibom, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply</a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Painting</a></li>
+                                          <li><a href="#">Designing</a></li>
+                                          <li><a href="#">Recommending/a></li>
+                                          <li><a href="#">Cleaning</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+
+                                        <p>&#x20a6;18000/month</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Home security system installation</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Interested in installing a comprehensive home security system, including surveillance cameras, motion sensors, and a
+                                          smart lock system. Integration with smartphone apps for remote monitoring is desired.</p>
+                                          <ul class="">
+
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Bayelsa, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                        <a class="tf-btn fohr-tuhn01">Apply</a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Fixing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Maintening</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;4000/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Appliance repair and maintenance</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Need prompt repair services for a malfunctioning refrigerator. Fast response time, expertise in diagnosing and fixing
+                                          the issue, and availability of genuine spare parts are important considerations.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Enugu, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply </a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Repairing</a></li>
+                                          <li><a href="#">Diagnosing</a></li>
+                                          <li><a href="#">Maintening</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;5300/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Window and Door Installation</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Require professionals to install new energy-efficient windows and replace the front door for improved insulation and
+                                          enhanced curb appeal. Quality workmanship and attention to detail are essential.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Lagos, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply </a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Fixing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Replacing</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;5000/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Furniture assembly and installation</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Seeking help to assemble and install a new bedroom furniture set, including a bed, wardrobe, and dresser. Quick and
+                                          efficient assembly, ensuring stability and proper alignment, is crucial.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Lagos, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+
+                                         <a href="#" class="tf-btn">Apply </a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Assembling</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Replacing</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                                        <p>&#x20a6;15000/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+                                          <h3>
+                                            <a href="#">Home theater setup and installation</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Want to set up a home theater system in the living room. Need professionals to handle the installation of the projector,
+                                          speakers, and wiring, ensuring optimal audio-visual experience.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Kano, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply </a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Wiring</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Maintening</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;4500/day</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Roofing repairs and installations</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Looking for experts to clean the moss and debris off the roof, inspect and repair any damaged areas, and apply
+                                          protective coatings to prolong the roof's lifespan.</p>
+                                          <ul class="">
+
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Benin, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                          <a class="tf-btn fohr-tuhn01">Apply </a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Repairing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Inspecting</a></li>
+                                          <li><a href="#">Cleaning</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;3000/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+
+                                          <h3>
+                                            <a href="#">Fence installation and repairs</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Interested in installing a new fence around the property for privacy and security. Need assistance with fence design,
+                                          material selection, and proper installation with sturdy foundations.</p>
+                                          <ul class="">
+
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Abuja, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+
+                                         <a href="#" class="tf-btn">Apply </a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Repairing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Designing</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;5000/day</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+                                          <h3>
+                                            <a href="#">Bathroom remodeling and renovations</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Planning to remodel the bathroom with new fixtures, tiles, and a modern vanity. Seeking experienced contractors to
+                                          handle the project, providing design ideas and ensuring quality workmanship.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Calabar, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <a class="tf-btn fohr-tuhn01">Apply </a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Designing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Remodelling</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+                                        <p>&#x20a6;1500/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+
+                                        <div class="career-left-inner">
+                                          <h3>
+                                            <a href="#">Home renovation services</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <p class="requirement">Considering a complete home renovation, including kitchen and bathroom upgrades, flooring replacement, and interior
+                                          painting. Looking for a reliable contractor with expertise in managing renovation projects from start to finish.</p>
+                                          <ul class="">
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Akwa Ibom, Nigeria
+                                            </li>
+                                          </ul>
+
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                          <a class="tf-btn fohr-tuhn01">Apply</a>                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Replacing</a></li>
+                                          <li><a href="#">Installing</a></li>
+                                          <li><a href="#">Upgrading</a></li>
+                                          <li><a href="#">Recommending</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+
+
+                                        <p>&#x20a6;5000/day</p>
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <ul class="pagination-job p-top-st1">
+                                    <li><a href="#"><i class="icon-keyboard_arrow_left"></i></a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li class="current"><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#"><i class="icon-keyboard_arrow_right"></i></a></li>
+                                  </ul>
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+  </section>
+
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/plugin.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/range-side.js' %}"></script>
+<script src="{% static 'js/swiper.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
