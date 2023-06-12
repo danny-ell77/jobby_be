@@ -75,12 +75,16 @@ class ObjectHistoryTracker(models.Model):
 class Homeowner(UUIDPrimaryKey, ObjectHistoryTracker):
     user = models.OneToOneField("User", on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"Homeowner: {self.user.email}"
+
 
 class ServiceProvider(UUIDPrimaryKey, ObjectHistoryTracker):
     user = models.OneToOneField("User", on_delete=models.CASCADE)
     provider_name = models.CharField(max_length=255, blank=True, null=True)
     bio = models.TextField()
     rating = models.PositiveSmallIntegerField(null=True)
+    phone = models.CharField(max_length=255, blank=True, null=True)
     hourly_rate = models.DecimalField(
         verbose_name="hourly rate", max_digits=8, decimal_places=2
     )
@@ -91,17 +95,37 @@ class ServiceProvider(UUIDPrimaryKey, ObjectHistoryTracker):
         blank=True,
         null=True,
     )
+    service_type = models.ForeignKey(
+        "ServiceType",
+        on_delete=models.CASCADE,
+        related_name="service_providers",
+        blank=True,
+        null=True,
+    )
     location = models.CharField(max_length=255)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ("?",)
+
+    def __str__(self):
+        return self.provider_name
 
 
 class ServiceType(UUIDPrimaryKey, ObjectHistoryTracker):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
+
+    def __str__(self):
+        return self.name
 
 
 class ServiceArea(UUIDPrimaryKey, ObjectHistoryTracker):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
+
+    def __str__(self):
+        return self.name
 
 
 class User(UUIDPrimaryKey, AbstractUser):
@@ -110,7 +134,7 @@ class User(UUIDPrimaryKey, AbstractUser):
         verbose_name=_("email address"), blank=False, null=False, unique=True
     )
     is_service_provider = models.BooleanField(
-        verbose_name=_("is service provider"), default=True
+        verbose_name=_("is service provider"), default=False
     )
     is_home_owner = models.BooleanField(verbose_name=_("is home owner"), default=True)
 
@@ -139,12 +163,22 @@ class Booking(UUIDPrimaryKey, ObjectHistoryTracker):
     )
     status = models.CharField(max_length=255, choices=BookingStatus.choices)
 
+    def __str__(self):
+        return f"Booking for {self.service_provider.provider_name} by {self.homeowner.user.email}"
+
 
 class Review(UUIDPrimaryKey, ObjectHistoryTracker):
-    homeowner = models.ForeignKey(Homeowner, on_delete=models.CASCADE)
-    service_provider = models.ForeignKey(ServiceProvider, on_delete=models.CASCADE)
+    homeowner = models.ForeignKey(
+        Homeowner, on_delete=models.CASCADE, related_name="reviews"
+    )
+    service_provider = models.ForeignKey(
+        ServiceProvider, on_delete=models.CASCADE, related_name="reviews"
+    )
     rating = models.PositiveSmallIntegerField()
     comments = models.TextField()
+
+    def __str__(self):
+        return f"Review for {self.service_provider.provider_name} by {self.homeowner.user.email}"
 
 
 class ProviderAvailability(UUIDPrimaryKey, ObjectHistoryTracker):
@@ -173,3 +207,6 @@ class ProviderAvailability(UUIDPrimaryKey, ObjectHistoryTracker):
             ),
         ]
         verbose_name_plural = "Provider availabilities"
+
+    def __str__(self):
+        return f"{self.start_time} to {self.end_time} on {self.days_of_the_week}"

@@ -1476,7 +1476,7 @@
 .tf-slider.landing-slider {
   padding-top: 70px;
   padding-bottom: 600px;
-  background-image: url(../images/slider/landing-slider.jpg);
+  background-image: url(../img/slider/landing-slider.jpg);
   background-color: #F8F8F8;
 }
 
@@ -1563,7 +1563,7 @@
 .tf-slider.sl1 {
   padding-top: 239px;
   padding-bottom: 155px;
-  background-image: url(../images/slider/slider1.jpg);
+  background-image: url(../img/slider/slider1.jpg);
 }
 
 .tf-slider.sl2 {
@@ -1588,13 +1588,13 @@
 .tf-slider.sl5 {
   padding-top: 60px;
   padding-bottom: 73px;
-  background-image: url(../images/slider/slider2.jpg);
+  background-image: url(../img/slider/slider2.jpg);
 }
 
 .tf-slider.sl6 {
   padding-top: 276px;
   padding-bottom: 194px;
-  background-image: url(../images/slider/slider3.jpg);
+  background-image: url(../img/slider/slider3.jpg);
 }
 
 .tf-slider.sl7 {
@@ -1606,7 +1606,7 @@
 .tf-slider.sl8 {
   padding-top: 240px;
   padding-bottom: 39px;
-  background-image: url(../images/slider/slider4.jpg);
+  background-image: url(../img/slider/slider4.jpg);
 }
 
 .tf-slider.sl9 {
@@ -2274,7 +2274,7 @@
   margin-bottom: 16px;
 }
 
-.job-article.stc .widget-dash-video.style2 .gallery-slide .swiper-slide .images {
+.job-article.stc .widget-dash-video.style2 .gallery-slide .swiper-slide .img {
   height: 480px;
 }
 
@@ -2514,7 +2514,7 @@
   margin-bottom: 40px;
 }
 
-.widget-dash-video.style2 .gallery-slide .swiper-slide .images {
+.widget-dash-video.style2 .gallery-slide .swiper-slide .img {
   height: 492px;
 }
 
@@ -3370,7 +3370,7 @@
 
 /* banner rating */
 .wd-banner-rating {
-  background-image: url(../images/review/banner-star.jpg);
+  background-image: url(../img/review/banner-star.jpg);
   background-size: cover;
   padding: 28px 0;
   display: flex;
@@ -3617,7 +3617,7 @@
   opacity: 0;
   will-change: opacity;
   transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  cursor: url(../images/review/icon-close.png), auto;
+  cursor: url(../img/review/icon-close.png), auto;
 }
 
 .menu-mobile-popup .modal-menu__backdrop,
@@ -3937,7 +3937,7 @@
   -ms-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  cursor: url(../images/review/icon-close.png), auto;
+  cursor: url(../img/review/icon-close.png), auto;
 }
 
 .wd-popup-form .content {
@@ -4974,20 +4974,20 @@
   margin-bottom: 21px;
 }
 
-.widget-dash-video.st .gallery-slide .swiper-slide.swiper-slide-1 .images {
-  background-image: url(../images/review/sl1.jpg);
+.widget-dash-video.st .gallery-slide .swiper-slide.swiper-slide-1 .img {
+  background-image: url(../img/review/sl1.jpg);
 }
 
 .widget-dash-video.st .gallery-thumb .swiper-slide.swiper-slide-1 {
-  background-image: url(../images/review/sl2.jpg);
+  background-image: url(../img/review/sl2.jpg);
 }
 
 .widget-dash-video.st .gallery-thumb .swiper-slide.swiper-slide-2 {
-  background-image: url(../images/review/sl3.jpg);
+  background-image: url(../img/review/sl3.jpg);
 }
 
 .widget-dash-video.st .gallery-thumb .swiper-slide.swiper-slide-3 {
-  background-image: url(../images/review/sl4.jpg);
+  background-image: url(../img/review/sl4.jpg);
 }
 
 .form-candidate .group-input {
@@ -5579,7 +5579,7 @@
 }
 
 .banner-contact-v1 {
-  background: url(../images/review/banner.jpg);
+  background: url(../img/review/banner.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -6985,18 +6985,18 @@
   width: 100%;
 }
 
-.wd-shop .product-hover-images img,
-.wd-shop .product-main-images img {
+.wd-shop .product-hover-img img,
+.wd-shop .product-main-img img {
   width: 100%;
   height: auto;
 }
 
-.wd-shop .product-main-images {
+.wd-shop .product-main-img {
   -webkit-transition: opacity 0.8s ease;
   transition: opacity 0.8s ease;
 }
 
-.wd-shop .product-hover-images {
+.wd-shop .product-hover-img {
   display: block;
   position: absolute;
   top: 0;
@@ -7015,11 +7015,11 @@
   transform: translateZ(0);
 }
 
-.wd-shop:hover .product-main-images {
+.wd-shop:hover .product-main-img {
   opacity: 0;
 }
 
-.wd-shop:hover .product-hover-images {
+.wd-shop:hover .product-hover-img {
   opacity: 1;
   -webkit-transform: scale3d(1.1, 1.1, 1.1) translateZ(0);
   transform: scale3d(1.1, 1.1, 1.1) translateZ(0);
@@ -9240,7 +9240,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* wd-author-page-title */
 .wrapper-author-page-title {
-  background-image: url("../images/page-title/bg-author-page-title.jpg");
+  background-image: url("../img/page-title/bg-author-page-title.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 40px 0px;
@@ -9487,7 +9487,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* PAGE */
 .wd-banner-CTA {
-  background-image: url(../images/partners/CTA.png);
+  background-image: url(../img/partners/CTA.png);
   image-rendering: pixelated;
   background-size: cover;
   display: flex;
@@ -9544,7 +9544,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .wd-banner-counter {
   padding: 80px 0px 105px;
-  background-image: url(../images/partners/couter.png);
+  background-image: url(../img/partners/couter.png);
 }
 
 .group-title-counter h3 {
@@ -9963,7 +9963,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .face>div {
-  background-image: url(images/resource/company-logo/3-1.html);
+  background-image: url(img/resource/company-logo/3-1.html);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -11149,7 +11149,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .landing-footer {
   padding-top: 0px;
-  background-image: url(../images/slider/landing-footer.jpg);
+  background-image: url(../img/slider/landing-footer.jpg);
   background-color: #FAFAFA;
   background-repeat: no-repeat;
   background-size: cover;

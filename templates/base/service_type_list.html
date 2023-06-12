@@ -1,0 +1,277 @@
+{% extends "base/index.html" %}
+{% load static %}
+
+{% block css %}
+  <!-- Font -->
+  <link rel="stylesheet" href={% static "fonts/fonts.css" %} />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href={% static "css/bootstrap.min.css" %} />
+
+  <!-- swiper slider -->
+  <link rel="stylesheet" href={% static "css/swiper-bundle.min.css" %} />
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <!-- Theme Style -->
+  <link rel="stylesheet" type="text/css" href={% static "css/shortcodes.css" %} />
+  <link rel="stylesheet" type="text/css" href={% static "css/style.css" %} />
+  <link rel="stylesheet" type="text/css" href={% static "css/jobs.html" %}>
+
+  <link rel="shortcut icon" href={% static "img/favicon.png" %}>
+  <link rel="apple-touch-icon-precomposed" href={% static "img/favicon.png" %}>
+  <!-- Colors -->
+  <link rel="stylesheet" type="text/css" href={% static "css/colors/color.html" %} id="colors">
+  <!-- Responsive -->
+  <link rel="stylesheet" type="text/css" href={% static "css/responsive.css" %} />
+{% endblock %}
+
+{% block content %}
+  <a id="scroll-top"></a>
+
+  <!-- preloade -->
+  <div class="preload preload-container">
+    <div class="preload-logo">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  <!-- /preload -->
+  <!-- popup nav menu-mobile-->
+  <div class="menu-mobile-popup">
+    <div class="modal-menu__backdrop"></div>
+    <div class="widget-filter">
+
+
+
+
+      <div class="header-customize-item button">
+        <a href="dashboard/candidates-resumes.html">Upload Resume</a>
+      </div>
+
+      <div class="mobile-footer">
+        <div class="icon-infor d-flex aln-center">
+          <div class="icon">
+            <span class="icon-call-calling"><span class="path1"></span><span class="path2"></span><span
+                class="path3"></span><span class="path4"></span></span>
+          </div>
+          <div class="content">
+            <p>Need help? 24/7</p>
+            <h6><a href="tel:0123456678">001-1234-88888</a></h6>
+          </div>
+        </div>
+        <div class="wd-social d-flex aln-center">
+          <ul class="list-social d-flex aln-center">
+            <li><a href="#"><i class="icon-facebook"></i></a></li>
+            <li><a href="#"><i class="icon-linkedin2"></i></a></li>
+            <li><a href="#"><i class="icon-twitter"></i></a></li>
+            <li><a href="#"><i class="icon-pinterest"></i></a></li>
+            <li><a href="#"><i class="icon-instagram1"></i></a></li>
+            <li><a href="#"><i class="icon-youtube"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /end -->
+
+  <!-- Boxed -->
+  <div class="boxed">
+  <!-- HEADER -->
+      <section class="bg-f5 breadcrumb-section">
+    <div class="tf-container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="page-title">
+            <div class="widget-menu-link">
+              <ul>
+                <li><a href="{% url "home" %}">Home</a></li>
+                <li><a href="#">Find Providers</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END HEADER -->
+
+
+  <section class="inner-jobs-section">
+    <div class="tf-container">
+      <div class="row">
+        <div class="col-lg-12 tf-tab">
+          <div class="wd-meta-select-job">
+
+            <div class="wd-findjob-filer">
+              <div class="group-select-display">
+                <div class="inner menu-tab">
+                  <a class="btn-display active"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16"
+                      viewBox="0 0 17 16" fill="none">
+                      <path
+                        d="M0.5 12.001L0.5 16.0005C0.880952 16.001 1.09693 16.001 1.83333 16.001L15.1667 16.001C15.9031 16.001 16.5 16.0005 16.5 16.0005L16.5 12.001C16.5 12.001 15.9031 12.001 15.1667 12.001L1.83333 12.001C1.09693 12.001 0.880952 12.001 0.5 12.001Z"
+                        fill="#A0A0A0" />
+                      <path
+                        d="M0.5 6.00098L0.5 10.0005C0.880952 10.001 1.09693 10.001 1.83333 10.001L15.1667 10.001C15.9031 10.001 16.5 10.0005 16.5 10.0005L16.5 6.00098C16.5 6.00098 15.9031 6.00098 15.1667 6.00098L1.83333 6.00098C1.09693 6.00098 0.880952 6.00098 0.5 6.00098Z"
+                        fill="#A0A0A0" />
+                      <path
+                        d="M0.5 0.000976562L0.5 4.0005C0.880952 4.00098 1.09693 4.00098 1.83333 4.00098L15.1667 4.00098C15.9031 4.00098 16.5 4.0005 16.5 4.0005L16.5 0.000975863C16.5 0.000975863 15.9031 0.000975889 15.1667 0.000975921L1.83333 0.000976504C1.09693 0.000976536 0.880952 0.000976546 0.5 0.000976562Z"
+                        fill="#A0A0A0" />
+                    </svg></a>
+                  <a class="btn-display"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16"
+                      viewBox="0 0 17 16" fill="none">
+                      <path
+                        d="M4.5 0H0.500478C0.5 0.380952 0.5 0.596931 0.5 1.33333V14.6667C0.5 15.4031 0.500478 16 0.500478 16H4.5C4.5 16 4.5 15.4031 4.5 14.6667V1.33333C4.5 0.596931 4.5 0.380952 4.5 0Z"
+                        fill="white" />
+                      <path
+                        d="M10.5 0H6.50048C6.5 0.380952 6.5 0.596931 6.5 1.33333V14.6667C6.5 15.4031 6.50048 16 6.50048 16H10.5C10.5 16 10.5 15.4031 10.5 14.6667V1.33333C10.5 0.596931 10.5 0.380952 10.5 0Z"
+                        fill="white" />
+                      <path
+                        d="M16.5 0H12.5005C12.5 0.380952 12.5 0.596931 12.5 1.33333V14.6667C12.5 15.4031 12.5005 16 12.5005 16H16.5C16.5 16 16.5 15.4031 16.5 14.6667V1.33333C16.5 0.596931 16.5 0.380952 16.5 0Z"
+                        fill="white" />
+                    </svg></a>
+                </div>
+                <p class="nofi-job"> <span>{{ qs_count }}</span> Provider{% if qs_count > 1 %}s {% endif %} found</p>
+              </div>
+              <div class="group-select">
+{#                <select>#}
+{#                  <option>12 Per Page</option>#}
+{#                  <option>1 Per Page</option>#}
+{#                  <option>10 Per Page</option>#}
+{#                </select>#}
+                <select>
+                  <option>Sort by (Default)</option>
+                  <option>New</option>
+                  <option>Last</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="content-tab">
+            <div class="inner">
+                {% for provider in service_providers %}
+                  <div class="features-job style-3">
+                <div class="inner-box">
+                  <div class="company">
+                    <div class="logo-company">
+                      <img src="{% static "img/logo-company/cty8.png" %}" alt="images/logo-company/cty8.png">
+                    </div>
+                    <div class="box-content">
+                      <h4>
+                        <a href="#">{{ provider.service_type.name }}</a>
+                      </h4>
+                      <h3>
+                        <a href="#">{{ provider.provider_name}}</a>
+                        <span class="icon-bolt"></span>
+                      </h3>
+                      <div class="star">
+                        <span class="icon-star-full"></span>
+                        <span class="icon-star-full"></span>
+                        <span class="icon-star-full"></span>
+                        <span class="icon-star-full"></span>
+                        <span class="icon-star-full"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="info">
+                    <li>
+                      <span class="icon-map-pin"></span>
+                        {{ provider.location}}
+                    </li>
+                    <li>{{ provider.availability.days_of_the_week}}</li>
+                  </ul>
+{#                  <div class="category">#}
+{#                    <ul class="job-tag">#}
+{#                      <li><a href="#">Full-time</a></li>#}
+{#                      <li><a href="#">Hybrid</a></li>#}
+{#                    </ul>#}
+{#                  </div>#}
+                  <div class="salary">
+                    <p>&#x20a6;{{provider.hourly_rate}}<span class="year">/hour</span></p>
+                  </div>
+                </div>
+                <a href="{% url "service_provider_detail" pk=provider.id %}" class="jobtex-link-item" tabindex="0"></a>
+
+              </div>
+                {% endfor %}
+            </div>
+            <div class="inner">
+              <div class="group-col-3">
+                  {% for provider in service_providers %}
+                    <div class="features-job cl3">
+                  <div class="job-archive-header">
+                    <div class="inner-box">
+                      <div class="logo-company">
+                        <img src="{% static "img/logo-company/cty1.png" %}" alt="images/logo-company/cty1.png">
+                      </div>
+                      <div class="box-content">
+                        <h4>
+                          <a href="#">{{ provider.service_type.name}}</a>
+                        </h4>
+                        <h3>
+                          <a href="#">{{ provider.provider_name}}</a>
+                          <span class="icon-bolt"></span>
+                        </h3>
+                        <ul>
+                          <li>
+                            <span class="icon-map-pin"></span>
+                              {{ provider.location}}
+                          </li>
+                          <li>
+                            <span class="icon-calendar"></span>
+                              {{ provider.availability.days_of_the_week}}
+                          </li>
+                        </ul>
+                        <span class="icon-heart"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-archive-footer">
+                    <div class="job-footer-left">
+                      <div class="star">
+                        <span class="icon-star-full"></span>
+                        <span class="icon-star-full"></span>
+                        <span class="icon-star-full"></span>
+                        <span class="icon-star-full"></span>
+                        <span class="icon-star-full"></span>
+                      </div>
+                    </div>
+                    <div class="job-footer-right">
+                      <div class="price">
+                        <span class="icon-dolar1"></span>
+                        <p>&#x20a6;{{provider.hourly_rate}}<span class="year">/hour</span></p>
+                      </div>
+                      <p class="days">{{ provider.availability.start_time}} - {{ provider.availability.end_time}}</p>
+                    </div>
+                  </div>
+                        <a href="{% url "service_provider_detail" pk=provider.id %}" class="jobtex-link-item" tabindex="0"></a>
+
+                </div>
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /.boxed -->
+
+{% endblock %}
+
+{% block scripts %}
+  <script src={% static "js/jquery.min.js" %}></script>
+  <script src={% static "js/swiper-bundle.min.js" %}></script>
+  <script src={% static "js/bootstrap.min.js" %}></script>
+  <script src={% static "js/jquery.fancybox.js" %}></script>
+  <script src={% static "js/plugin.min.js" %}></script>
+  <script src={% static 'js/wow.min.js' %}></script>
+  <script src={% static "js/range-side.js" %}></script>
+  <script src={% static 'js/swiper.js' %}></script>
+  <script src={% static 'js/jquery.nice-select.min.js' %}></script>
+  <script src={% static "js/jquery.cookie.js" %}></script>
+  <script src={% static "js/switcher.js" %}></script>
+  <script src={% static "js/main.js" %}></script>
+{% endblock %}

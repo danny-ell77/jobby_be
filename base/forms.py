@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
 from .locations import NigeriaStates
-from .models import User
+from .models import User, ServiceProvider, ServiceType
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -67,3 +67,78 @@ class ServiceProviderProfileForm(forms.Form):
         label="Hourly Rate", max_value=999_999_999, min_value=100, required=True
     )
     bio = forms.CharField(label="Bio", widget=forms.Textarea, required=True)
+
+
+class ProviderSearchForm(forms.Form):
+    __locations = (
+        ServiceProvider.objects.filter(is_active=True)
+        .distinct()
+        .values_list("location", flat=True)
+    )
+
+    search_query = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "input-filter-search",
+                "placeholder": "Service type, key words or company",
+            }
+        )
+    )
+    location = forms.ChoiceField(
+        choices=[
+            ("", "All Location"),
+            *[(location, location) for location in __locations],
+        ],
+        widget=forms.Select(attrs={"class": "select-location"}),
+        initial="",
+        required=False,
+    )
+
+
+class ProviderFilterForm(forms.Form):
+    provider_qs = ServiceProvider.objects.filter(is_active=True).distinct()
+    service_type_qs = ServiceType.objects.all().distinct()
+    LOCATION_CHOICES = [
+        ("", "All Location"),
+        *[
+            (location, location)
+            for location in provider_qs.values_list("location", flat=True)
+        ],
+    ]
+    SERVICE_CATEGORY_CHOICES = [
+        ("", "Service Category"),
+        *[
+            (service_type, service_type)
+            for service_type in service_type_qs.values_list("name", flat=True)
+        ],
+    ]
+    RATINGS_CHOICES = [
+        ("", "Ratings"),
+        ("5", "5 stars"),
+        ("4", "4 stars"),
+        ("3", "3 stars"),
+    ]
+    AVAILABILITY_CHOICES = [
+        ("", "Availability"),
+        ("mon", "Monday"),
+        ("tue", "Tuesday"),
+        ("wed", "Wednesday"),
+        ("thu", "Thursday"),
+        ("fri", "Friday"),
+        ("sat", "Saturday"),
+        ("sun", "Sunday"),
+        ("weekdays", "Weekdays"),
+        ("weekends", "Weekends"),
+    ]
+    PRICE_RANGE_CHOICES = [
+        ("", "Price Range"),
+        ("budget", "Budget-friendly"),
+        ("moderate", "Moderate"),
+        ("premium", "Premium"),
+    ]
+
+    location = forms.ChoiceField(choices=LOCATION_CHOICES, required=False)
+    service_type = forms.ChoiceField(choices=SERVICE_CATEGORY_CHOICES, required=False)
+    ratings = forms.ChoiceField(choices=RATINGS_CHOICES, required=False)
+    availability = forms.ChoiceField(choices=AVAILABILITY_CHOICES, required=False)
+    price_range = forms.ChoiceField(choices=PRICE_RANGE_CHOICES, required=False)

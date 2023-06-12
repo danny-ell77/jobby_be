@@ -35,7 +35,21 @@ class ServiceAreaAdmin(admin.ModelAdmin):
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ("email",)
+    list_display = (
+        "email",
+        "is_service_provider",
+        "is_home_owner",
+    )
+    list_filter = [
+        "email",
+        "is_service_provider",
+        "is_home_owner",
+    ]
+    search_fields = [
+        "email",
+        "is_service_provider",
+        "is_home_owner",
+    ]
 
 
 @admin.register(TimeSlot)
