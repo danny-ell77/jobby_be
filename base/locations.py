@@ -2,6 +2,8 @@ from django.db import models
 
 
 class NigeriaStates(models.TextChoices):
+    """A list of States in Nigeria"""
+
     ABIA = "AB", "Abia"
     ADAMAWA = "AD", "Adamawa"
     AKWA_IBOM = "AK", "Akwa Ibom"

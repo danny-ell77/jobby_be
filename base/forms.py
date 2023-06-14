@@ -6,10 +6,17 @@ from .models import User, ServiceProvider, ServiceType
 
 
 class UserRegistrationForm(UserCreationForm):
+    """
+    Form for user registration.
+    """
+
     is_service_provider = forms.BooleanField(required=False)
     is_home_owner = forms.BooleanField(required=False)
 
     def __init__(self, *args, **kwargs):
+        """
+        Initialize the UserRegistrationForm instance.
+        """
         super().__init__(*args, **kwargs)
         self.fields["password1"].widget.attrs.update(
             {"class": "input-form password-input"}
@@ -19,11 +26,18 @@ class UserRegistrationForm(UserCreationForm):
         )
 
     class Meta(UserCreationForm.Meta):
+        """
+        Meta class for UserRegistrationForm.
+        """
+
         model = User
         fields = ("email", "is_service_provider", "is_home_owner")
         exclude = ("username",)
 
     def save(self, commit=True):
+        """
+        Save the user instance.
+        """
         user = super().save(commit=False)
         user.is_service_provider = self.cleaned_data["is_service_provider"]
         user.is_home_owner = self.cleaned_data["is_home_owner"]
@@ -34,11 +48,19 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class AuthenticationForm(forms.Form):
+    """
+    Form for user authentication.
+    """
+
     email = forms.EmailField(widget=forms.EmailInput(attrs={"autofocus": True}))
     password = forms.CharField(widget=forms.PasswordInput)
 
 
 class ServiceProviderProfileForm(forms.Form):
+    """
+    Form for service provider profile.
+    """
+
     DAYS_OF_WEEK = [
         ("mon", "Monday"),
         ("tue", "Tuesday"),
@@ -70,6 +92,10 @@ class ServiceProviderProfileForm(forms.Form):
 
 
 class ProviderSearchForm(forms.Form):
+    """
+    Form for provider search.
+    """
+
     __locations = (
         ServiceProvider.objects.filter(is_active=True)
         .distinct()
@@ -96,6 +122,10 @@ class ProviderSearchForm(forms.Form):
 
 
 class ProviderFilterForm(forms.Form):
+    """
+    Form for provider filtering.
+    """
+
     provider_qs = ServiceProvider.objects.filter(is_active=True).distinct()
     service_type_qs = ServiceType.objects.all().distinct()
     LOCATION_CHOICES = [

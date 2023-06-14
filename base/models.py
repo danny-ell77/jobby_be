@@ -1,8 +1,6 @@
 import uuid
 
 from django.contrib.auth.models import AbstractUser
-
-# from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -10,6 +8,10 @@ from base.managers import UserManager
 
 
 class DaysOfTheWeek(models.IntegerChoices):
+    """
+    Enumeration representing the days of the week.
+    """
+
     MONDAY = 1, "Monday"
     TUESDAY = 2, "Tuesday"
     WEDNESDAY = 3, "Wednesday"
@@ -20,6 +22,10 @@ class DaysOfTheWeek(models.IntegerChoices):
 
 
 class BookingStatus(models.TextChoices):
+    """
+    Enumeration representing the status of a booking.
+    """
+
     APPROVED = "APPROVED"
     REJECTED = "REJECTED"
     PENDING = "PENDING"
@@ -27,12 +33,20 @@ class BookingStatus(models.TextChoices):
 
 
 class BookingPaymentStatus(models.TextChoices):
+    """
+    Enumeration representing the payment status of a booking.
+    """
+
     SUCCESSFUL = "SUCCESSFUL"
     PENDING = "PENDING"
     FAILED = "FAILED"
 
 
 class UUIDPrimaryKey(models.Model):
+    """
+    Abstract base model providing a UUID primary key field.
+    """
+
     id = models.UUIDField(
         verbose_name="id",
         primary_key=True,
@@ -46,6 +60,9 @@ class UUIDPrimaryKey(models.Model):
 
 
 class ObjectHistoryTracker(models.Model):
+    """
+    Abstract base model providing fields for tracking object history.
+    """
 
     created_at = models.DateTimeField(
         verbose_name=_("creation date"),
@@ -73,13 +90,24 @@ class ObjectHistoryTracker(models.Model):
 
 
 class Homeowner(UUIDPrimaryKey, ObjectHistoryTracker):
+    """
+    Model representing a homeowner.
+    """
+
     user = models.OneToOneField("User", on_delete=models.CASCADE)
 
     def __str__(self):
+        """
+        Return a string representation of the homeowner.
+        """
         return f"Homeowner: {self.user.email}"
 
 
 class ServiceProvider(UUIDPrimaryKey, ObjectHistoryTracker):
+    """
+    Model representing a service provider.
+    """
+
     user = models.OneToOneField("User", on_delete=models.CASCADE)
     provider_name = models.CharField(max_length=255, blank=True, null=True)
     bio = models.TextField()
@@ -109,26 +137,47 @@ class ServiceProvider(UUIDPrimaryKey, ObjectHistoryTracker):
         ordering = ("?",)
 
     def __str__(self):
+        """
+        Return a string representation of the service provider.
+        """
         return self.provider_name
 
 
 class ServiceType(UUIDPrimaryKey, ObjectHistoryTracker):
+    """
+    Model representing a service type.
+    """
+
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
 
     def __str__(self):
+        """
+        Return a string representation of the service type.
+        """
         return self.name
 
 
 class ServiceArea(UUIDPrimaryKey, ObjectHistoryTracker):
+    """
+    Model representing a service area.
+    """
+
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
 
     def __str__(self):
+        """
+        Return a string representation of the service area.
+        """
         return self.name
 
 
 class User(UUIDPrimaryKey, AbstractUser):
+    """
+    Custom user model extending Django's AbstractUser.
+    """
+
     username = None
     email = models.EmailField(
         verbose_name=_("email address"), blank=False, null=False, unique=True
@@ -144,16 +193,27 @@ class User(UUIDPrimaryKey, AbstractUser):
     objects = UserManager()
 
     def __str__(self):
+        """
+        Return a string representation of the user.
+        """
         return self.email
 
 
 class TimeSlot(UUIDPrimaryKey, ObjectHistoryTracker):
+    """
+    Model representing a time slot.
+    """
+
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     is_booked = models.BooleanField()
 
 
 class Booking(UUIDPrimaryKey, ObjectHistoryTracker):
+    """
+    Model representing a booking.
+    """
+
     slot = models.OneToOneField(TimeSlot, on_delete=models.CASCADE)
     homeowner = models.ForeignKey(Homeowner, on_delete=models.CASCADE)
     service_provider = models.ForeignKey(ServiceProvider, on_delete=models.CASCADE)
@@ -164,10 +224,17 @@ class Booking(UUIDPrimaryKey, ObjectHistoryTracker):
     status = models.CharField(max_length=255, choices=BookingStatus.choices)
 
     def __str__(self):
+        """
+        Return a string representation of the booking.
+        """
         return f"Booking for {self.service_provider.provider_name} by {self.homeowner.user.email}"
 
 
 class Review(UUIDPrimaryKey, ObjectHistoryTracker):
+    """
+    Model representing a review.
+    """
+
     homeowner = models.ForeignKey(
         Homeowner, on_delete=models.CASCADE, related_name="reviews"
     )
@@ -178,24 +245,29 @@ class Review(UUIDPrimaryKey, ObjectHistoryTracker):
     comments = models.TextField()
 
     def __str__(self):
+        """
+        Return a string representation of the review.
+        """
         return f"Review for {self.service_provider.provider_name} by {self.homeowner.user.email}"
 
 
 class ProviderAvailability(UUIDPrimaryKey, ObjectHistoryTracker):
-    days_of_the_week = models.CharField(max_length=500, blank=True, null=True)
+    """
+    Model representing the availability of a service provider.
+    """
 
+    days_of_the_week = models.CharField(max_length=500, blank=True, null=True)
     start_time = models.TimeField(
         auto_now=False,
         auto_now_add=False,
         help_text="Format: HH:MM (24-hour)",
         verbose_name="Start Time",
     )
-
     end_time = models.TimeField(
         auto_now=False,
         auto_now_add=False,
         help_text="Format: HH:MM (24-hour)",
-        verbose_name="Start Time",
+        verbose_name="End Time",
     )
 
     class Meta:
@@ -209,4 +281,7 @@ class ProviderAvailability(UUIDPrimaryKey, ObjectHistoryTracker):
         verbose_name_plural = "Provider availabilities"
 
     def __str__(self):
+        """
+        Return a string representation of the provider availability.
+        """
         return f"{self.start_time} to {self.end_time} on {self.days_of_the_week}"
