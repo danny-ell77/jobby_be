@@ -13,8 +13,10 @@ To run Jobby locally, follow these steps:
 1. Clone the repository: `git clone https://github.com/danny-ell/jobby.git`
 2. Navigate to the project directory: `cd jobby`
 3. Install the dependencies: `pip install -r requirements.txt`
-4. Run the development server: `python manage.py runserver`
-5. Access Jobby in your browser at: `http://localhost:8000`
+4. Create and Run db Migrations `python manage.py makemigrations && python manage.py migrate`
+5. Load the mock data into the db: `python manage.py load_fixtures`
+6. Run the development server: `python manage.py runserver`
+7. Access Jobby in your browser at: `http://localhost:8000`
 
 ## Usage
 
